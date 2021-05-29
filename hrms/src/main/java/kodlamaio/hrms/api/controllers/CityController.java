@@ -27,5 +27,4 @@ public class CityController {
 	public DataResult<List<City>> getAll() {
 		return this.cityService.getAll();
 	}
-	// Deneme
 }
