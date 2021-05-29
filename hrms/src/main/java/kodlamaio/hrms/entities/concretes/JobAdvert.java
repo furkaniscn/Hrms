@@ -7,6 +7,7 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
@@ -35,7 +36,7 @@ public class JobAdvert {
 	@Column(name = "salary_min")
 	private int salaryMin;
 
-	@Column(name = "opean_position_count")
+	@Column(name = "open_position_count")
 	private int openPositionCount;
 
 	@Column(name = "deadline")
@@ -57,14 +58,14 @@ public class JobAdvert {
 	private boolean isOpen;
 
 	@ManyToOne
-	@Column(name = "employer_id")
+	@JoinColumn(name = "employer_id")
 	private Employer employer;
 
 	@ManyToOne
-	@Column(name = "city_id")
+	@JoinColumn(name = "city_id")
 	private City city;
 
 	@ManyToOne
-	@Column(name = "jobposition_id")
+	@JoinColumn(name = "job_position_id")
 	private JobPosition jobPosition;
 }

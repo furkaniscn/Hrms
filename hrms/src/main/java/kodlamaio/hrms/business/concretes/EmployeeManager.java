@@ -20,13 +20,12 @@ public class EmployeeManager implements EmployeeService {
 
 	@Autowired
 	public EmployeeManager(EmployeeDao employeeDao) {
-		super();
 		this.employeeDao = employeeDao;
 	}
 
 	@Override
 	public DataResult<List<Employee>> getAll() {
-		// TODO Auto-generated method stub
+
 		return new SuccessDataResult<List<Employee>>(this.employeeDao.findAll());
 	}
 
