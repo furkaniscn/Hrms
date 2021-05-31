@@ -13,7 +13,6 @@ import kodlamaio.hrms.core.utilities.results.SuccessDataResult;
 import kodlamaio.hrms.core.utilities.results.SuccessResult;
 import kodlamaio.hrms.dataAccess.abstracts.JobAdvertDao;
 import kodlamaio.hrms.entities.concretes.JobAdvert;
-import net.bytebuddy.asm.Advice.This;
 
 @Service
 public class JobAdvertManager implements JobAdvertService {
