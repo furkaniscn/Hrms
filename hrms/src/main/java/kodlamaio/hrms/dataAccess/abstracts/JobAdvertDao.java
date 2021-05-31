@@ -9,6 +9,8 @@ import kodlamaio.hrms.entities.concretes.JobAdvert;
 
 public interface JobAdvertDao extends JpaRepository<JobAdvert, Integer> {
 
+	JobAdvert getById(int id);
+
 	@Query("From JobAdvert where isOpen = true")
 	List<JobAdvert> getAllOpenJobAdvertList();
 

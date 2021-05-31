@@ -12,7 +12,7 @@ import kodlamaio.hrms.core.utilities.results.Result;
 import kodlamaio.hrms.core.utilities.results.SuccessResult;
 import kodlamaio.hrms.dataAccess.abstracts.JobseekerDao;
 import kodlamaio.hrms.entities.concretes.Jobseeker;
-import net.bytebuddy.asm.Advice.This;
+
 
 @Service
 public class JobseekerManager implements JobseekerService {

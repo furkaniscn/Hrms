@@ -41,7 +41,6 @@ public class JobPositionManager implements JobPositionService {
 
 	@Override
 	public DataResult<JobPosition> getJobByTitle(String title) {
-
 		return new SuccessDataResult<JobPosition>(this.jobPositionDao.findByJobTitle(title));
 	}
 

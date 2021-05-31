@@ -13,6 +13,7 @@ import kodlamaio.hrms.core.utilities.results.SuccessDataResult;
 import kodlamaio.hrms.core.utilities.results.SuccessResult;
 import kodlamaio.hrms.dataAccess.abstracts.JobAdvertDao;
 import kodlamaio.hrms.entities.concretes.JobAdvert;
+import net.bytebuddy.asm.Advice.This;
 
 @Service
 public class JobAdvertManager implements JobAdvertService {
@@ -41,8 +42,7 @@ public class JobAdvertManager implements JobAdvertService {
 	}
 
 	private boolean CheckIfNullField(JobAdvert jobAdvert) {
-		if (jobAdvert.getJobPosition() != null && jobAdvert.getDescription() != null 
-				&& jobAdvert.getCity() != null) {
+		if (jobAdvert.getJobPosition() != null && jobAdvert.getDescription() != null && jobAdvert.getCity() != null) {
 			return true;
 		}
 		return false;
@@ -71,31 +71,26 @@ public class JobAdvertManager implements JobAdvertService {
 
 	@Override
 	public DataResult<JobAdvert> getById(int id) {
-
-		return new SuccessDataResult<JobAdvert>(this.jobAdvertDao.getOne(id));
+		return new SuccessDataResult<JobAdvert>(this.jobAdvertDao.getById(id));
 	}
 
 	@Override
 	public DataResult<List<JobAdvert>> getAll() {
-
 		return new SuccessDataResult<List<JobAdvert>>(this.jobAdvertDao.findAll());
 	}
 
 	@Override
 	public DataResult<List<JobAdvert>> findAllByOrderByPublishedAt() {
-
 		return new SuccessDataResult<List<JobAdvert>>(this.jobAdvertDao.findAllByOrderByPublishedAtDesc());
 	}
 
 	@Override
 	public DataResult<List<JobAdvert>> getAllOpenJobAdvertList() {
-
 		return new SuccessDataResult<List<JobAdvert>>(this.jobAdvertDao.getAllOpenJobAdvertList());
 	}
 
 	@Override
 	public DataResult<List<JobAdvert>> getAllOpenJobAdvertByEmployer(int id) {
-
 		return new SuccessDataResult<List<JobAdvert>>(this.jobAdvertDao.getAllOpenJobAdvertByEmployer(id));
 	}
 
