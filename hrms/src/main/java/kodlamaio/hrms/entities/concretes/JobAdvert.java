@@ -4,9 +4,6 @@ import java.time.LocalDate;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
@@ -20,12 +17,7 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 @AllArgsConstructor
 @Table(name = "job_adverts")
-public class JobAdvert {
-
-	@Id
-	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	@Column(name = "id")
-	private int id;
+public class JobAdvert extends Base {
 
 	@Column(name = "description")
 	private String description;
@@ -45,15 +37,6 @@ public class JobAdvert {
 	@Column(name = "published_at")
 	private LocalDate publishedAt;
 
-	@Column(name = "created_at")
-	private LocalDate createdAt;
-
-	@Column(name = "is_active")
-	private boolean isActive;
-
-	@Column(name = "is_deleted")
-	private boolean isDeleted;
-
 	@Column(name = "is_open")
 	private boolean isOpen;
 
@@ -68,4 +51,5 @@ public class JobAdvert {
 	@ManyToOne
 	@JoinColumn(name = "job_position_id")
 	private JobPosition jobPosition;
+
 }

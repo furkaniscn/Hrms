@@ -9,22 +9,17 @@ import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
-@Entity
-@Table(name = "employees")
 @Data
+@Entity
 @PrimaryKeyJoinColumn(name = "user_id")
 @AllArgsConstructor
 @NoArgsConstructor
-public class Employee extends User{
+@Table(name = "employees")
+public class Employee extends User {
 
-//	@Id
-//	@GeneratedValue
-//	@Column(name = "user_id")
-//	private int userId;
-	
 	@Column(name = "first_name")
 	private String firstName;
-	
+
 	@Column(name = "last_name")
 	private String lastName;
 }
