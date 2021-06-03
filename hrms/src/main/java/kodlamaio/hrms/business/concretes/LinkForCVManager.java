@@ -49,7 +49,7 @@ public class LinkForCVManager implements LinkForCVService {
 	}
 
 	@Override
-	public DataResult<List<LinkForCV>> getAllJobseekerId(int id) {
+	public DataResult<List<LinkForCV>> getAllByJobseekerId(int id) {
 		return new SuccessDataResult<List<LinkForCV>>
 		(this.linkForCVDao.getAllByJobseeker_id(id));
 	}

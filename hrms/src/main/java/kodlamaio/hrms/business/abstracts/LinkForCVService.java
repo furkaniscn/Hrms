@@ -15,7 +15,7 @@ public interface LinkForCVService {
 
 	DataResult<LinkForCV> getById(int id);
 
-	DataResult<List<LinkForCV>> getAllJobseekerId(int id);
+	DataResult<List<LinkForCV>> getAllByJobseekerId(int id);
 
 	DataResult<List<LinkForCV>> getAll();
 }

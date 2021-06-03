@@ -89,7 +89,7 @@ public class JobseekerManager implements JobseekerService {
 		cv.languages = this.foreignLanguageForCVService.getAllByJobseekerId(id).getData();
 		cv.schools = this.schoolForCVService.getAllByJobseekerId(id).getData();
 		cv.image = this.imageForCVService.getByJobseekerId(id).getData();
-		cv.links = this.linkForCVService.getAllJobseekerId(id).getData();
+		cv.links = this.linkForCVService.getAllByJobseekerId(id).getData();
 		cv.programingSkills = this.programmingSkillForCVService.getAllByJobseekerId(id).getData();
 		return new SuccessDataResult<JobseekerCVDto>(cv);
 	}
