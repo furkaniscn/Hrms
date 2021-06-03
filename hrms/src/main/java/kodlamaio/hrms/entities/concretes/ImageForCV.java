@@ -21,7 +21,7 @@ public class ImageForCV extends Base {
 	@Column(name = "url")
 	private String url;
 
-	@JoinColumn(name = "jobseeker", referencedColumnName = "user_id")
+	@JoinColumn(name = "jobseeker_id", referencedColumnName = "user_id")
 	@OneToOne(optional = false, fetch = FetchType.LAZY)
 	private Jobseeker jobseeker;
 }

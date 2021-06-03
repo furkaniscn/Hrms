@@ -14,7 +14,7 @@ import lombok.NoArgsConstructor;
 @Entity
 @NoArgsConstructor
 @AllArgsConstructor
-@Table(name = "cv_programing_skills")
+@Table(name = "cv_programming_skills")
 public class ProgrammingSkillForCV extends Base {
 
 	@Column(name = "skill_name")
