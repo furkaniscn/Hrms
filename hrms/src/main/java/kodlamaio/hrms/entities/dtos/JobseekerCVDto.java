@@ -10,7 +10,7 @@ import kodlamaio.hrms.entities.concretes.LinkForCV;
 import kodlamaio.hrms.entities.concretes.ProgrammingSkillForCV;
 import kodlamaio.hrms.entities.concretes.SchoolForCV;
 
-public class JobSeekerCVDto {
+public class JobseekerCVDto {
 
 	public Jobseeker jobseeker;
 	public List<ForeignLanguageForCV> languages;
