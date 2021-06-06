@@ -2,7 +2,6 @@ package kodlamaio.hrms.business.concretes;
 
 import java.util.List;
 
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import kodlamaio.hrms.business.abstracts.ExperienceForCVService;
@@ -24,32 +23,49 @@ import kodlamaio.hrms.entities.dtos.JobseekerCVDto;
 public class JobseekerManager implements JobseekerService {
 
 	private JobseekerDao jobseekerDao;
-	private LinkForCVService linkForCVService;
 	private ExperienceForCVService experienceForCVService;
 	private ForeignLanguageForCVService foreignLanguageForCVService;
+	private ImageForCVService imageForCVService;
+	private LinkForCVService linkForCVService;
 	private ProgrammingSkillForCVService programmingSkillForCVService;
 	private SchoolForCVService schoolForCVService;
-	private ImageForCVService imageForCVService;
 
-	@Autowired
-	public JobseekerManager(JobseekerDao jobseekerDao, LinkForCVService linkForCVService,
-			ExperienceForCVService experienceForCVService, ForeignLanguageForCVService foreignLanguageForCVService,
-			ProgrammingSkillForCVService programmingSkillForCVService, SchoolForCVService schoolForCVService,
-			ImageForCVService imageForCVService) {
+	public JobseekerManager(JobseekerDao jobseekerDao, ExperienceForCVService experienceForCVService,
+			ForeignLanguageForCVService foreignLanguageForCVService, ImageForCVService imageForCVService,
+			LinkForCVService linkForCVService, ProgrammingSkillForCVService programmingSkillForCVService,
+			SchoolForCVService schoolForCVService) {
 		super();
 		this.jobseekerDao = jobseekerDao;
-		this.linkForCVService = linkForCVService;
 		this.experienceForCVService = experienceForCVService;
 		this.foreignLanguageForCVService = foreignLanguageForCVService;
+		this.imageForCVService = imageForCVService;
+		this.linkForCVService = linkForCVService;
 		this.programmingSkillForCVService = programmingSkillForCVService;
 		this.schoolForCVService = schoolForCVService;
-		this.imageForCVService = imageForCVService;
 	}
 
 	@Override
 	public Result add(Jobseeker jobseeker) {
 		this.jobseekerDao.save(jobseeker);
 		return new SuccessResult("Jobseeker has been added.");
+	}
+
+	@Override
+	public Result update(Jobseeker jobseeker) {
+		this.jobseekerDao.save(jobseeker);
+		return new SuccessResult("Jobseeker has been updated.");
+	}
+
+	@Override
+	public Result delete(int id) {
+		this.jobseekerDao.deleteById(id);
+		return new SuccessResult("Jobseeker has been deleted.");
+	}
+
+	@Override
+	public DataResult<Jobseeker> getById(int id) {
+		return new SuccessDataResult<Jobseeker>
+		(this.jobseekerDao.getById(id));
 	}
 
 	@Override
@@ -65,32 +81,15 @@ public class JobseekerManager implements JobseekerService {
 	}
 
 	@Override
-	public Result delete(int id) {
-		this.jobseekerDao.deleteById(id);
-		return new SuccessResult("Jobseeker has been deleted");
-	}
-
-	@Override
-	public Result update(Jobseeker jobseeker) {
-		this.jobseekerDao.save(jobseeker);
-		return new SuccessResult("Jobseeker has been updated");
-	}
-
-	@Override
-	public DataResult<Jobseeker> getById(int id) {
-		return new SuccessDataResult<Jobseeker>
-		(this.jobseekerDao.getById(id));
-	}
-
-	@Override
 	public DataResult<JobseekerCVDto> getJobseekerCVById(int id) {
+		Jobseeker jobseeker = this.jobseekerDao.getById(id);
 		JobseekerCVDto cv = new JobseekerCVDto();
-		cv.experiences = this.experienceForCVService.getAllByJobseekerId(id).getData();
-		cv.languages = this.foreignLanguageForCVService.getAllByJobseekerId(id).getData();
-		cv.schools = this.schoolForCVService.getAllByJobseekerId(id).getData();
-		cv.image = this.imageForCVService.getByJobseekerId(id).getData();
-		cv.links = this.linkForCVService.getAllByJobseekerId(id).getData();
-		cv.programingSkills = this.programmingSkillForCVService.getAllByJobseekerId(id).getData();
+		cv.experiences = jobseeker.getExperiences();
+		cv.languages = jobseeker.getLanguages();
+		cv.image = jobseeker.getImage();
+		cv.links = jobseeker.getLinks();
+		cv.programingSkills = jobseeker.getProgramingSkills();
+		cv.schools = jobseeker.getSchools();
 		return new SuccessDataResult<JobseekerCVDto>(cv);
 	}
 
