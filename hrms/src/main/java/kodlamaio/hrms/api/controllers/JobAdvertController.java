@@ -39,7 +39,7 @@ public class JobAdvertController {
 		return this.jobAdvertService.add(jobAdvert);
 	}
 
-	@GetMapping("/getall")
+	@GetMapping("/getAll")
 	public DataResult<List<JobAdvert>> getAll() {
 		return this.jobAdvertService.getAll();
 	}
