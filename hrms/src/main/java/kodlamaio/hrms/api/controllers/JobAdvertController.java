@@ -29,7 +29,7 @@ public class JobAdvertController {
 		this.jobAdvertService = jobAdvertService;
 	}
 
-	@GetMapping("/getbyid")
+	@GetMapping("/getById")
 	public DataResult<JobAdvert> getById(@RequestParam int id) {
 		return this.jobAdvertService.getById(id);
 	}

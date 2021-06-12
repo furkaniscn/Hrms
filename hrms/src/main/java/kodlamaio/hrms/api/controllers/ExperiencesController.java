@@ -42,12 +42,12 @@ public class ExperiencesController {
 		return this.experienceForCVService.delete(id);
 	}
 
-	@GetMapping("/getbyid")
+	@GetMapping("/getById")
 	public DataResult<ExperienceForCV> getById(@RequestParam int id) {
 		return this.experienceForCVService.getById(id);
 	}
 
-	@GetMapping("/getall")
+	@GetMapping("/getAll")
 	public DataResult<List<ExperienceForCV>> getAll() {
 		return this.experienceForCVService.getAll();
 	}

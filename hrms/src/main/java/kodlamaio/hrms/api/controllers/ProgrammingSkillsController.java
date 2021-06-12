@@ -42,12 +42,12 @@ public class ProgrammingSkillsController {
 		return this.programmingSkillForCVService.delete(id);
 	}
 
-	@GetMapping("/getbyid")
+	@GetMapping("/getById")
 	public DataResult<ProgrammingSkillForCV> getById(@RequestParam("id") int id) {
 		return this.programmingSkillForCVService.getById(id);
 	}
 
-	@GetMapping("/getall")
+	@GetMapping("/getAll")
 	public DataResult<List<ProgrammingSkillForCV>> getAll() {
 		return this.programmingSkillForCVService.getAll();
 	}

@@ -42,12 +42,12 @@ public class ForeignLanguagesController {
 		return this.foreignLanguageForCVService.delete(id);
 	}
 
-	@GetMapping("/getbyid")
+	@GetMapping("/getById")
 	public DataResult<ForeignLanguageForCV> getById(@RequestParam("id") int id) {
 		return this.foreignLanguageForCVService.getById(id);
 	}
 
-	@GetMapping("/getall")
+	@GetMapping("/getAll")
 	public DataResult<List<ForeignLanguageForCV>> getAll() {
 		return this.foreignLanguageForCVService.getAll();
 	}

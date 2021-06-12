@@ -33,7 +33,7 @@ public class JobPositionsController {
 		return this.jobPositionService.add(jobPosition);
 	}
 
-	@GetMapping("/getall")
+	@GetMapping("/getAll")
 	public DataResult<List<JobPosition>> getAll() {
 		return this.jobPositionService.getAll();
 	}

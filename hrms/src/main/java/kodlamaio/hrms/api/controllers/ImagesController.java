@@ -51,12 +51,12 @@ public class ImagesController {
 		return this.imageForCVService.delete(id);
 	}
 
-	@GetMapping("/getbyid")
+	@GetMapping("/getById")
 	public DataResult<ImageForCV> getById(@RequestParam("id") int id) {
 		return this.imageForCVService.getById(id);
 	}
 
-	@GetMapping("/getall")
+	@GetMapping("/getAll")
 	public DataResult<List<ImageForCV>> getAll() {
 		return this.imageForCVService.getAll();
 	}

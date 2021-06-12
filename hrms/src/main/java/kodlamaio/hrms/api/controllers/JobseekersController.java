@@ -35,7 +35,7 @@ public class JobseekersController {
 		return this.jobseekerService.add(jobseeker);
 	}
 
-	@GetMapping("/getall")
+	@GetMapping("/getAll")
 	public DataResult<List<Jobseeker>> getAll() {
 		return this.jobseekerService.getAll();
 	}

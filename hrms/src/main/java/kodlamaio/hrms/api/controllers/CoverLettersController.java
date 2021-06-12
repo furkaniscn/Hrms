@@ -42,12 +42,12 @@ public class CoverLettersController {
 		return this.coverLetterForCVService.delete(id);
 	}
 
-	@GetMapping("/getbyid")
+	@GetMapping("/getById")
 	public DataResult<CoverLetterForCV> getById(@RequestParam("id") int id) {
 		return this.coverLetterForCVService.getById(id);
 	}
 
-	@GetMapping("/getall")
+	@GetMapping("/getAll")
 	public DataResult<List<CoverLetterForCV>> getAll() {
 		return this.coverLetterForCVService.getAll();
 	}

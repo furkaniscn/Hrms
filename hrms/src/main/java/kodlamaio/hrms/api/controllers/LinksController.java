@@ -42,12 +42,12 @@ public class LinksController {
 		return this.linkForCVService.delete(id);
 	}
 
-	@GetMapping("/getbyid")
+	@GetMapping("/getById")
 	public DataResult<LinkForCV> getById(@RequestParam("id") int id) {
 		return this.linkForCVService.getById(id);
 	}
 
-	@GetMapping("/getall")
+	@GetMapping("/getAll")
 	public DataResult<List<LinkForCV>> getAll() {
 		return this.linkForCVService.getAll();
 	}

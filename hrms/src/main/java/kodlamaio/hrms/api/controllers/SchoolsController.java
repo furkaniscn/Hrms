@@ -42,12 +42,12 @@ public class SchoolsController {
 		return this.schoolForCVService.delete(id);
 	}
 
-	@GetMapping("/getbyid")
+	@GetMapping("/getById")
 	public DataResult<SchoolForCV> getById(@RequestParam int id) {
 		return this.schoolForCVService.getById(id);
 	}
 
-	@GetMapping("/getall")
+	@GetMapping("/getAll")
 	public DataResult<List<SchoolForCV>> getAll() {
 		return this.schoolForCVService.getAll();
 	}
